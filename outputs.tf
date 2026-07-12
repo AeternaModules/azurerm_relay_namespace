@@ -1,3 +1,7 @@
+output "relay_namespaces_id" {
+  description = "Map of id values across all relay_namespaces, keyed the same as var.relay_namespaces"
+  value       = { for k, v in azurerm_relay_namespace.relay_namespaces : k => v.id }
+}
 output "relay_namespaces_location" {
   description = "Map of location values across all relay_namespaces, keyed the same as var.relay_namespaces"
   value       = { for k, v in azurerm_relay_namespace.relay_namespaces : k => v.location }
